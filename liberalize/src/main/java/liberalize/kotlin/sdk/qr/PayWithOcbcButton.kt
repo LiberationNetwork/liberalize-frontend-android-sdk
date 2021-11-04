@@ -7,6 +7,7 @@ import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatButton
 import liberalize.kotlin.sdk.Liberalize
 import liberalize.kotlin.sdk.models.QrCodeData
+import liberalize.kotlin.sdk.logger.Logger
 
 class PayWithOcbcButton @JvmOverloads constructor(
     context: Context,
@@ -38,11 +39,15 @@ class PayWithOcbcButton @JvmOverloads constructor(
      */
     private fun startOcbcApp() {
         qrCodeData?.let {
-            val intent = Intent(Intent.ACTION_VIEW)
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-            val link = Liberalize.instance.getOcbcDeeplink(context, it)
-            intent.data = Uri.parse(link)
-            context.startActivity(intent)
+            try {
+                val intent = Intent(Intent.ACTION_VIEW)
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                val link = Liberalize.instance.getOcbcDeeplink(context, it)
+                intent.data = Uri.parse(link)
+                context.startActivity(intent)
+            } catch (e: Exception) {
+                Logger.e("Liberalize", "OCBC APP Not Found")
+            }
         }
     }
 }

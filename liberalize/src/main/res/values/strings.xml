@@ -10,7 +10,7 @@
     <string name="expiration_date">Expiration Date</string>
     <string name="cvv">CVV</string>
     <string name="mm_yy">MM/YY</string>
-    <string name="submit">SUBMIT</string>
+    <string name="submit">Pay</string>
     <string name="security_code">Security Code</string>
     <string name="card_details">Card details</string>
     <string name="card_number_is_invalid">Card number is invalid</string>
