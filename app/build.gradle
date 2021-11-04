@@ -1,0 +1,80 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+android {
+    compileSdk 31
+
+    defaultConfig {
+        applicationId "liberalize.kotlin.sample"
+        minSdk 23
+        targetSdk 31
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+        }
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    flavorDimensions "environment"
+    productFlavors {
+        dev {
+            applicationIdSuffix = ".dev"
+            resValue "string", "libaralize_public_key", "<public key>"
+        }
+        staging {
+            applicationIdSuffix = ".staging"
+            resValue "string", "libaralize_public_key", "<public key>"
+        }
+        prod {
+            resValue "string", "libaralize_public_key", "<public key>"
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding = true
+    }
+}
+
+dependencies {
+    implementation 'androidx.core:core-ktx:1.6.0'
+    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.1'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+    implementation project(path: ':liberalize')
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.3.1"
+    implementation "androidx.fragment:fragment-ktx:1.3.6"
+    implementation("androidx.activity:activity-ktx:1.3.1")
+    implementation 'com.google.code.gson:gson:2.8.8'
+    implementation files('libs/liberalize-backend.jar')
+
+    testImplementation 'junit:junit:4.+'
+    implementation 'com.amitshekhar.android:android-networking:1.0.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        jcenter()
+    }
+}

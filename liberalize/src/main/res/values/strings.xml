@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="liberalize_choose_payment_method">Choose payment method</string>
+    <string name="liberalize_card">CARD</string>
+    <string name="liberalize_qr_code">QR CODE</string>
+    <string name="credit_or_debit_card">Credit or Debit Card</string>
+    <string name="card_holder_name">Cardholder Name</string>
+    <string name="card_number">Card Number</string>
+    <string name="add_card">ADD CARD</string>
+    <string name="expiration_date">Expiration Date</string>
+    <string name="cvv">CVV</string>
+    <string name="mm_yy">MM/YY</string>
+    <string name="submit">SUBMIT</string>
+    <string name="security_code">Security Code</string>
+    <string name="card_details">Card details</string>
+    <string name="card_number_is_invalid">Card number is invalid</string>
+    <string name="expiration_date_is_invalid">Expiration date is invalid</string>
+    <string name="please_input_card_holder_name">Please input card holder name</string>
+    <string name="security_code_is_invalid">Security code is invalid</string>
+</resources>
