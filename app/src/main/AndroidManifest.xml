@@ -37,6 +37,10 @@
             android:name=".payment.QrCodeActivityJava"
             android:screenOrientation="portrait" />
 
+        <uses-library
+          android:name="org.apache.http.legacy"
+          android:required="false" />
+
     </application>
 
 </manifest>
